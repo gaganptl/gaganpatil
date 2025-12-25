@@ -1,0 +1,1 @@
+function toggleBibtex(e){var t=document.getElementById(e);t.style.display==="none"||t.style.display===""?t.style.display="block":t.style.display="none"}

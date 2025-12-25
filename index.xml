@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Home on Gagan Patil</title><link>https://gaganpatil.com/</link><description>Recent content in Home on Gagan Patil</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 01 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://gaganpatil.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Initial Research Log</title><link>https://gaganpatil.com/notes/first-note/</link><pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate><guid>https://gaganpatil.com/notes/first-note/</guid><description>&lt;p&gt;Starting a systematic study of machine learning fundamentals and core concepts.&lt;/p&gt;</description></item><item><title>Contact</title><link>https://gaganpatil.com/contact/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gaganpatil.com/contact/</guid><description>&lt;p&gt;I am currently focused on independent study and research.&lt;/p&gt;
+&lt;p&gt;Email: &lt;strong&gt;gaganpatil.research [at] gmail [dot] com&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;A contact form will be enabled once public projects or publications are available.&lt;/p&gt;
+&lt;!-- Serverless Form --&gt;
+&lt;!-- &lt;form id="contact-form" style="max-width: 600px;"&gt;
+ &lt;div&gt;
+ &lt;label for="name"&gt;Name&lt;/label&gt;
+ &lt;input type="text" id="name" name="name" required&gt;
+ &lt;/div&gt;
+ 
+ &lt;div&gt;
+ &lt;label for="email"&gt;Email&lt;/label&gt;
+ &lt;input type="email" id="email" name="email" required&gt;
+ &lt;/div&gt;
+ 
+ Honeypot
+ &lt;div style="display:none;"&gt;
+ &lt;label for="url"&gt;Website&lt;/label&gt;
+ &lt;input type="text" id="url" name="url"&gt;
+ &lt;/div&gt;
+
+ &lt;div&gt;
+ &lt;label for="message"&gt;Message&lt;/label&gt;
+ &lt;textarea id="message" name="message" rows="6" required&gt;&lt;/textarea&gt;
+ &lt;/div&gt;
+
+ &lt;button type="submit" id="submit-btn"&gt;Send Message&lt;/button&gt;
+ &lt;div id="status-message" style="margin-top: 1rem;"&gt;&lt;/div&gt;
+&lt;/form&gt;
+
+&lt;script&gt;
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
+ e.preventDefault();
+ const status = document.getElementById('status-message');
+ const btn = document.getElementById('submit-btn');
+ 
+ Check Honeypot
+ if(document.getElementById('url').value) return; 
+ 
+ btn.disabled = true;
+ btn.innerText = "Sending...";
+ 
+ const formData = new FormData(this);
+ const data = Object.fromEntries(formData);
+ 
+ REPLACE WITH YOUR WORKER URL IN PRODUCTION
+ const API_URL = "https://your-worker.your-subdomain.workers.dev"; 
+
+ try {
+ Simulating logic if no URL set
+ if (API_URL.includes("your-worker")) {
+ throw new Error("Worker URL not configured yet.");
+ }
+
+ const response = await fetch(API_URL, {
+ method: 'POST',
+ headers: {'Content-Type': 'application/json'},
+ body: JSON.stringify(data)
+ });
+ 
+ if (response.ok) {
+ status.innerText = "Message sent successfully.";
+ status.style.color = "green";
+ this.reset();
+ } else {
+ status.innerText = "Error sending message. Please try again.";
+ status.style.color = "red";
+ }
+ } catch (error) {
+ console.error(error);
+ status.innerText = "API endpoint not configured in content/contact.md";
+ status.style.color = "orange";
+ }
+ 
+ btn.disabled = false;
+ btn.innerText = "Send Message";
+});
+&lt;/script&gt; --&gt;</description></item></channel></rss>
