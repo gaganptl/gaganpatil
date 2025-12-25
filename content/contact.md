@@ -4,7 +4,7 @@ description: "Get in touch."
 canonical: "https://YOUR_DOMAIN_HERE/contact/"
 type: "page"
 ---
-I am currently focused on independent study and research.
+I am currently focused on self-directed study and research.
 
 Email: **gaganpatil.research [at] gmail [dot] com**
 

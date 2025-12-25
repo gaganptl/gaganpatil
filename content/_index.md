@@ -2,4 +2,4 @@
 title: "Home"
 ---
 
-I am interested in understanding intelligence.
+Interested in understanding intelligence.
