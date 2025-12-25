@@ -1,0 +1,43 @@
+{{ define "main" }}
+<h1 class="page-title">Publications</h1>
+
+{{ .Content }}
+
+<div class="publications-list">
+    {{ range .Pages.ByDate.Reverse }}
+    <article class="pub-item">
+        <a href="{{ .Params.url_pdf | default .Permalink }}" class="pub-title">{{ .Title }}</a>
+        <div class="pub-meta">
+            {{ delimit .Params.authors ", " }}
+        </div>
+        <div class="pub-meta">
+            <em>{{ .Params.venue }}</em>
+            {{ if .Params.award }}
+            <span style="color: #d69e2e; font-weight: bold; margin-left: 0.5rem;">★ {{ .Params.award }}</span>
+            {{ end }}
+        </div>
+
+        {{ if .Params.description }}
+        <p style="margin: 0.5rem 0; font-size: 0.95rem; color: var(--color-text-main);">
+            <strong>TL;DR:</strong> {{ .Params.description }}
+        </p>
+        {{ end }}
+
+        <div class="pub-links">
+            {{ if .Params.url_pdf }}<a href="{{ .Params.url_pdf }}">[PDF]</a>{{ end }}
+            {{ if .Params.url_code }}<a href="{{ .Params.url_code }}">[Code]</a>{{ end }}
+            {{ if .Params.url_project }}<a href="{{ .Params.url_project }}">[Project Page]</a>{{ end }}
+            {{ if .Params.bibtex }}
+            <a href="javascript:void(0)" onclick="toggleBibtex('bib-{{ .File.UniqueID }}')">[BibTeX]</a>
+            {{ end }}
+        </div>
+
+        {{ if .Params.bibtex }}
+        <div id="bib-{{ .File.UniqueID }}" class="bibtex-container">
+            <pre style="margin:0; padding:0; background:none; border:none;"><code>{{ .Params.bibtex }}</code></pre>
+        </div>
+        {{ end }}
+    </article>
+    {{ end }}
+</div>
+{{ end }}

@@ -1,0 +1,32 @@
+{{ define "main" }}
+<section class="bio">
+    <div style="margin-bottom: 2.5rem;">
+        {{ .Content }}
+    </div>
+</section>
+
+<section class="news">
+    <h2>Recent Notes & Updates</h2>
+    <ul style="list-style: none; padding: 0;">
+        {{ range first 5 (where .Site.RegularPages "Type" "in" (slice "blog" "notes")) }}
+        <li style="
+            margin-bottom: 0.75rem;
+            display: flex;
+            gap: 1.25rem;
+            align-items: baseline;
+        ">
+            <span style="
+                font-family: var(--font-mono);
+                color: var(--color-text-meta);
+                min-width: 120px;
+                white-space: nowrap;
+            ">
+                {{ .Date.Format "Jan 2, 2006" }}
+            </span>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </li>
+
+        {{ end }}
+    </ul>
+</section>
+{{ end }}

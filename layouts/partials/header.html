@@ -1,0 +1,19 @@
+<nav>
+    <ul>
+        {{ range .Site.Menus.main }}
+        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{ end }}
+    </ul>
+</nav>
+
+{{ if or .Site.Params.github .Site.Params.twitter }}
+<div style="margin-top: 0.75rem; font-size: 0.9rem;">
+    {{ with .Site.Params.github }}
+    <a href="{{ . }}" rel="me">GitHub</a>
+    {{ end }}
+    {{ with .Site.Params.twitter }}
+    {{ if $.Site.Params.github }} · {{ end }}
+    <a href="{{ . }}" rel="me">X</a>
+    {{ end }}
+</div>
+{{ end }}

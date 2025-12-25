@@ -1,0 +1,39 @@
+baseURL = "https://gaganpatil.com"
+languageCode = "en-us"
+title = "Gagan Patil"
+theme = [] # No theme, using custom layouts
+
+[params]
+  description = "interested in understanding intelligence."
+  author = "Gagan Patil"
+  # Placeholders
+  github = "https://github.com/gaganptl"
+  twitter = "https://x.com/gaganptl"
+  # Features
+  enable_math = true
+  enable_search = false # Enable after implementing search.json
+  
+  # Text displayed in Footer
+  copyright = "Licensed under CC-BY-4.0"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true # Allows specific SVG icons in markdown
+
+[menu]
+  [[menu.main]]
+    name = "About"
+    url = "/"
+    weight = 1
+
+
+  [[menu.main]]
+    name = "Notes"
+    url = "/notes/"
+    weight = 4
+
+  [[menu.main]]
+    name = "Contact"
+    url = "/contact/"
+    weight = 6

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+    {{ partial "head_includes.html" . }}
+</head>
+<body>
+    <header>
+        <h1><a href="/" style="text-decoration: none; color: inherit;">{{ .Site.Title }}</a></h1>
+        {{ partial "header.html" . }}
+    </header>
+
+    <main>
+        {{ block "main" . }}{{ end }}
+    </main>
+
+    {{ partial "footer.html" . }}
+    <script src="{{ (resources.Get "js/scripts.js" | minify | fingerprint).RelPermalink }}"></script>
+</body>
+</html>

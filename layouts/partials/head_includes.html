@@ -1,0 +1,15 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<link rel="canonical" href="{{ .Permalink }}">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+<!-- CSS Pipes -->
+{{ $tokens := resources.Get "css/css_tokens.css" }}
+{{ $main := resources.Get "css/main.css" }}
+{{ $styles := slice $tokens $main | resources.Concat "css/style.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
+
+<!-- Math Support -->
+{{ partial "math.html" . }}
